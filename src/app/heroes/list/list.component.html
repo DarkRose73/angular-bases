@@ -1,9 +1,23 @@
 <h3>Listado de heroes</h3>
 
-<h3>Héroe borrado <small class="text-danger">xxxx</small></h3>
-<h3>No ha borrado nada</h3>
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>
+    Héroe borrado <small class="text-danger">{{ deletedHero }}</small>
+  </h3>
+</div>
+<!-- ng-template es similar a los fragmentos de html <></> -->
+<!-- Referencia local -->
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado nada</h3>
+</ng-template>
 
-<button class="btn btn-outline-danger">Borrar último heroe</button>
+<button
+  *ngIf="this.heroNames.length > 0"
+  class="btn btn-outline-danger"
+  (click)="removeLastHero()"
+>
+  Borrar último heroe
+</button>
 <ul class="mt-2 list-group">
   <!-- El ngFor va dentro del objeto que se repetirá N veces -->
   <li *ngFor="let name of heroNames" class="list-group-item">{{ name }}</li>
