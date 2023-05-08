@@ -1,1 +1,10 @@
-<p>list works!</p>
+<h3>Listado de heroes</h3>
+
+<h3>Héroe borrado <small class="text-danger">xxxx</small></h3>
+<h3>No ha borrado nada</h3>
+
+<button class="btn btn-outline-danger">Borrar último heroe</button>
+<ul class="mt-2 list-group">
+  <!-- El ngFor va dentro del objeto que se repetirá N veces -->
+  <li *ngFor="let name of heroNames" class="list-group-item">{{ name }}</li>
+</ul>
