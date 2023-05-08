@@ -1,16 +1,19 @@
 <h1>{{ name }}</h1>
 <dl>
+  <!-- Interpolacion -->
   <td>Nombre:</td>
   <dd>{{ name }}</dd>
 
   <td>Edad:</td>
   <dd>{{ age }}</dd>
 
+  <!-- Llamar un metodo -->
   <td>Método:</td>
-  <dd>algún método</dd>
+  <dd>{{ getHeroDescription() }}</dd>
 
+  <!-- Llamar a un getter -->
   <td>Capitalizado:</td>
-  <dd>nombre capitalizado</dd>
+  <dd>{{ capitalizedName }}</dd>
 </dl>
 
 <button class="btn btn-primary mx-2">Cambiar nombre</button>
