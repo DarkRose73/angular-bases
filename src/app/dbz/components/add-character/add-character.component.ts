@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Character } from '../../interfaces/character.interface';
 
 @Component({
@@ -7,6 +7,11 @@ import { Character } from '../../interfaces/character.interface';
   styleUrls: ['./add-character.component.css'],
 })
 export class AddCharacterComponent {
+  // Generar nueva instancia del emisor de eventos
+  // Sirve para enviar data al componente padre
+  @Output()
+  public onNewCharacter: EventEmitter<Character> = new EventEmitter();
+
   public character: Character = {
     name: '',
     power: 0,
@@ -14,5 +19,13 @@ export class AddCharacterComponent {
 
   emitCharacter(): void {
     console.log(this.character);
+    // Validar que los personajes se envien con nombre
+    if (this.character.name.length === 0) return;
+
+    // Hacer la emision del evento
+    this.onNewCharacter.emit(this.character);
+    // Limpiar data
+    this.character.name = '';
+    this.character.power = 0;
   }
 }

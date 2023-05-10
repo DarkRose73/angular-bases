@@ -8,6 +8,10 @@
   </div>
 
   <div class="col">
-    <dbz-add-character></dbz-add-character>
+    <!-- HACER LA ESCUCHA DEL EVENTO -->
+    <!-- $event sirve para recibir el parametro del evento  -->
+    <dbz-add-character
+      (onNewCharacter)="onNewCharacter($event)"
+    ></dbz-add-character>
   </div>
 </div>

@@ -1,6 +1,7 @@
 <h4>Agregar personaje</h4>
 
-<form class="row">
+<form class="row" (ngSubmit)="emitCharacter()">
+  <!-- ngModel sirve para hacer el binding entre las propiedades y el front; es un Two way data binding -->
   <input
     class="form-control mb-2"
     name="name"
@@ -17,9 +18,7 @@
     placeholder="Poder"
   />
 
-  <button class="btn btn-primary" type="submit" (click)="emitCharacter()">
-    Agregar
-  </button>
+  <button class="btn btn-primary" type="submit">Agregar</button>
 
   <pre>{{ character | json }}</pre>
 </form>
