@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Character } from '../../interfaces/character.interface';
 
+import { v4 as uuid } from 'uuid';
+
 @Component({
   selector: 'dbz-list',
   templateUrl: './list.component.html',
@@ -11,12 +13,14 @@ export class ListComponent {
   // SE LE PUEDE PASAR COMO PARÁMETRO EL NOMBRE DE LA PROPIEDAD, SINO SE USA EL
   // MISMO NOMBRE CON EL QUE LLEGA DESDE EL PADRE
   @Input()
-  public characterList: Character[] = [{ name: 'Trunks', power: 10 }];
+  public characterList: Character[] = [
+    { name: 'Trunks', power: 10, id: uuid() },
+  ];
 
   @Output()
-  public onDelete: EventEmitter<number> = new EventEmitter();
+  public onDelete: EventEmitter<string> = new EventEmitter();
 
-  onDeleteCharacter(index: number): void {
-    this.onDelete.emit(index);
+  onDeleteCharacter(id: string): void {
+    this.onDelete.emit(id);
   }
 }
