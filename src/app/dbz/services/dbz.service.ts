@@ -16,7 +16,7 @@ export class DbzService {
     { name: 'Vegeta', power: 7500, id: uuid() },
   ];
 
-  onNewCharacter(character: Character): void {
+  addCharacter(character: Character): void {
     // Hacer spread de propiedades desde el objeto character
     const newCharacter: Character = {
       ...character,
