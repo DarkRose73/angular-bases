@@ -4,7 +4,11 @@
 <div class="row">
   <div class="col">
     <!-- AQUI SE ESTÁ PASANDO LA INFO DEL PADRE AL HIJO -->
-    <dbz-list [characterList]="characters"></dbz-list>
+    <dbz-list
+      [characterList]="characters"
+      (onDelete)="onDeleteCharacter($event)"
+    ></dbz-list>
+    <!-- onDelete -->
   </div>
 
   <div class="col">

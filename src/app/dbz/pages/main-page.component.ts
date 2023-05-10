@@ -13,7 +13,11 @@ export class MainPageComponent {
   ];
 
   onNewCharacter(character: Character): void {
-    console.log('Main Page');
-    console.log(character);
+    this.characters.push(character);
+  }
+
+  // remover el item
+  onDeleteCharacter(index: number) {
+    this.characters.splice(index, 1);
   }
 }

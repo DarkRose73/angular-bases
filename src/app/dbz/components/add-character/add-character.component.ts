@@ -18,14 +18,15 @@ export class AddCharacterComponent {
   };
 
   emitCharacter(): void {
-    console.log(this.character);
+    // debugger sirve para detener la ejecucion de js desde el navegador
+    // debugger;
+
     // Validar que los personajes se envien con nombre
     if (this.character.name.length === 0) return;
 
     // Hacer la emision del evento
     this.onNewCharacter.emit(this.character);
     // Limpiar data
-    this.character.name = '';
-    this.character.power = 0;
+    this.character = { name: '', power: 0 };
   }
 }
