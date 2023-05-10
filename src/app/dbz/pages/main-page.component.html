@@ -5,8 +5,8 @@
   <div class="col">
     <!-- AQUI SE ESTÁ PASANDO LA INFO DEL PADRE AL HIJO -->
     <dbz-list
-      [characterList]="characters"
-      (onDelete)="onDeleteCharacter($event)"
+      [characterList]="dbzService.characters"
+      (onDelete)="dbzService.onDeleteCharacter($event)"
     ></dbz-list>
     <!-- onDelete -->
   </div>
@@ -15,7 +15,7 @@
     <!-- HACER LA ESCUCHA DEL EVENTO -->
     <!-- $event sirve para recibir el parametro del evento  -->
     <dbz-add-character
-      (onNewCharacter)="onNewCharacter($event)"
+      (onNewCharacter)="dbzService.onNewCharacter($event)"
     ></dbz-add-character>
   </div>
 </div>
